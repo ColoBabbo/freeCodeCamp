@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+</head>
+<body>
+    <h1 id="title">Survey Form</h1>
+    <p id="description">Survey form for freeCodeCamp</p>
+    <form action="" id="survey-form">
+        <fieldset>
+            <label for="name" id="name-label">
+                Name
+                <input type="text" name="name" id="name" required placeholder="Your name">
+            </label>
+            <label for="email" id="email-label">
+                Email
+                <input type="email" name="email" id="email" required placeholder="Your email">
+            </label>
+            <label for="number" id="number-label">
+                Age
+                <input type="number" name="number" id="number" min="18" max="120" required placeholder="18+ only">
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Are you registered to vote?</legend>
+            <label for="is-registered">
+                <input id="is-registered" type="radio" name="registration-status" value="is-registered" checked />
+                Yes
+            </label>
+            <label for="is-not-registered">
+                <input id="is-not-registered" type="radio" name="registration-status" value="is-not-registered" />
+                No
+            </label>
+        </fieldset>
+        <fieldset>
+            <label for="dropdown" id="dropdown-label">
+                Who would you rather vote for?
+                <select name="dropdown" id="dropdown">
+                    <option value="">(select one)</option>
+                    <option value="1">Old White Guy</option>
+                    <option value="2">Older Whiter Guy</option>
+                    <option value="3">Literally anyone or thing else</option>
+                </select>
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Select issues important to you</legend>
+            <label for="check-abortion">
+                <input type="checkbox" name="abortion" id="abortion" value="abortion">
+                Abortion
+            </label>
+            <label for="check-guns">
+                <input type="checkbox" name="guns" id="guns" value="guns">
+                Guns
+            </label>
+            <label for="check-immigration">
+                <input type="checkbox" name="immigration" id="immigration" value="immigration">
+                Immigration
+            </label>
+        </fieldset>
+        <fieldset>
+            <label for="comments">
+                Any additional comments?
+                <textarea name="comments" id="comments" placeholder="Comments"></textarea>
+            </label>
+        </fieldset>
+        <input type="submit" value="Submit" id="submit">
+    </form>
+</body>
+</html>
