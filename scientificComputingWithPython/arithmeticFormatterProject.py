@@ -46,15 +46,7 @@ def is_number_too_long(number):
 def separate_problems_into_parts(problems):
     separated_problems = []
     for problem in problems:
-        # identify operator
-        if problem.find('+') != -1: operator = '+'
-        else: operator = '-'
-
-        # identify top and bottom numbers
-        top = problem[0:problem.index(operator)-1]
-        bottom = problem[problem.index(operator)+2:]
-
-        # gather parts
+        top, operator, bottom = problem.split()
         this_problem = {'top':top, 'bottom':bottom, 'operator':operator}
         separated_problems.append(this_problem)
 
