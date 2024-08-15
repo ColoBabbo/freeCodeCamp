@@ -16,7 +16,7 @@ class Category:
         output += f"{self.category:*^{line_width}}\n"
         for entry in self.ledger:
             amt_width = len(f"{entry['amount']:.2f}")
-            output += f"{entry['description'][:line_width - amt_width - 1]:<{line_width - amt_width}}{entry['amount']:>{amt_width}.2f}"
+            output += f"{entry['description'][:line_width - amt_width - 1]:<{line_width - amt_width}}{entry['amount']:>{amt_width}.2f}\n"
         output += f"Total: {self.get_balance():.2f}"
         return output
 
