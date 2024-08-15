@@ -7,33 +7,18 @@ class Category:
         return f'Category: {self.category}\nBalance: {str(self.get_balance())}\nEntries: {len(self.ledger)}'
 
     def __str__(self):
-        # if sum(ledger[]):
-            # return self.ledger
-        # return f'Category: {self.category}\nBalance: {str(self.get_balance())}\nEntries: {len(self.ledger)}'
         return self.print_cat()
 
     def print_cat(self):
         line_width = 30
         output = ''
 
-        # print(f"{self.category}".center(line_width,'*'))
-        output += f"{self.category}".center(line_width,'*')
-        output +='\n'
+        output += f"{self.category:*^{line_width}}\n"
         for entry in self.ledger:
-            spaces = len(f"{entry['amount']:.2f}")
-            # print(
-            #     f"{entry['description'][:29-spaces]:<{line_width - spaces}}|{entry['amount']:>{spaces}.2f}"
-            #     f""
-            #     )
-            output += (
-                f"{entry['description'][:29-spaces]:<{line_width - spaces}}{entry['amount']:>{spaces}.2f}"
-                f"\n"
-                )
-        # print(f"Total: {self.get_balance()}")
-        output += f"Total: {self.get_balance()}"
-        # print(output)   
+            amt_width = len(f"{entry['amount']:.2f}")
+            output += f"{entry['description'][:line_width - amt_width - 1]:<{line_width - amt_width}}{entry['amount']:>{amt_width}.2f}"
+        output += f"Total: {self.get_balance():.2f}"
         return output
-
 
     def deposit(self, amount, description=''):
         self.ledger.append({'amount': amount, 'description': description})
@@ -49,14 +34,12 @@ class Category:
         balance = 0
         for entry in self.ledger:
             balance += entry['amount']
-        # print(balance)
         return balance
 
     def transfer(self, amount, category):
         if self.check_funds(amount):
             self.withdraw(amount, f'Transfer to {category.category}')
             category.deposit(amount, f'Transfer from {self.category}')
-            # print(category)
             return True
         return False
 
